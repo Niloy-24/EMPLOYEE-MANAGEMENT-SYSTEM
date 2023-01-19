@@ -1,0 +1,1758 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<windows.h>
+#include <stdlib.h>
+struct data
+{
+char Username[25],Name[35],pass[30],add[70],mob[11];
+}r[99];
+int i=0;
+    char name1[30],position1[30],salary1[30],add1[30];
+    int b=0,c=0;
+    int counter=0;
+
+struct add_record
+{
+    char name[20],add[20],mob[12],position[30];
+    int age,salary, id;
+
+}e[100];
+
+struct employee_reg
+{
+    char name[30],pass[30],email_add[50],mob[12];
+}em[200],emp[200];
+int n;
+
+    void salary(void);
+    void importation(void);
+    void exportation(void);
+    void title();
+    void employee_reg(void);
+    void record_menu(void);
+    void registration(void);
+    void login(void);
+    void employee_login(void);
+    void employee_menu(void);
+    void front_page2(void);
+    void account_page(void);
+    void employee_info(void);
+    void emp_logout(void);
+    void logout(void);
+    void loading(void);
+    int Front_page();
+    void add_record();
+    void add_record2(void);
+    void see_record(void);
+    void update_record(void);
+    void  remove_record(void);
+    void tsge(void);
+    void cc(void);
+    void tsso(void);
+    void tsos(void);
+    void doe(void);
+    void cer(void);
+    void uad(void);
+    void ab(void);
+
+void fst_shift(void);
+void second_shift(void);
+void third_shift(void);
+void over_time(void);
+void fst_shift2(void);
+void second_shift2(void);
+
+void login()
+{
+    system("cls");
+    title();
+    char Username[30];
+       char Password[40];
+       char c;
+       int z=0;
+       printf("\n\n\n\t\t\t\tTo login your account please enter your username and password");
+       printf("\n\n\n\t\t\tUsername:");
+       scanf("%s",Username);
+       printf("\n\t\t\tPassword:");
+       while((c=getch())!=13)
+       {
+         Password[z++]=c;
+         printf("%c",'*');
+       }
+       Password[z]='\0';
+       if(strcmp(Username,"Aryan")==0&&strcmp(Password,"12345")==0)
+    {
+        system("cls");
+        printf("\n\n\n\n\t\t\t**You are successfully login**");
+        printf("\n\n\t\t\t***WELCOME,HAVE A NICE DAY***");
+        printf("\n\n\t\t\t***Press enter to continue***\n\n\n");
+        employee_info();
+        _getch();
+    }
+    else if(strcmp(Username,"Niloy")==0 &&strcmp(Password,"12345")==0)
+    {
+        system("cls");
+        printf("\n\n\n\n\t\t\t***You are successfully login***");
+        printf("\n\n\t\t\t***WELCOME,HAVE A NICE DAY***");
+        printf("\n\n\t\t\t***Press enter to continue***\n\n\n");
+        employee_info();
+        _getch();
+    }
+    else
+    {
+      system("cls");
+      printf("\n\t\tYour Username and Password is invalid");
+      printf("\n\t\tDo you exit?");
+      printf("\n\t\tPlease enter 1 to go back");
+      login();
+      //registration();
+      _getch();
+    }
+
+}
+
+
+void registration()
+{
+    system("cls");
+    char Password[40];
+     char c;
+     int z=0;
+       for(i=0;i<100;i++)
+       {
+           printf("\n\t\t===================================");
+           printf("\n\t\t\tWELCOME TO NEW MEMBER");
+           printf("\n\t\t===================================");
+           printf("\nYou have to fill up the gap for registration.......\n\n");
+         printf("  \nEnter your name:");
+         scanf("%s",r[i].Name);
+         printf("  \nEnter your username:");
+         scanf("%s",r[i].Username);
+
+         printf("  \nEnter your address:");
+         scanf("%s",r[i].add);
+         printf("  \nEnter your contact number:");
+         scanf("%d",r[i].mob);
+         printf("  \nEnter your password:");
+         while((c=getch())!=13)
+       {
+         Password[z++]=c;
+         printf("%c",'*');
+       }
+       Password[z]='\0';
+       printf("\n\n\t\tpress enter to finish your registration");
+        if((c=_getch())==13)
+        {
+            printf("\n\n\n\t\tYou are successfully register");
+            printf("\n\n\n\t\tDo you want to login your account???\n\n\t\t");
+            login();
+        }
+        break;
+       }
+
+       _getch();
+}
+ void loading()
+ {
+    char a[]="Loading........";
+    printf("\n\n\n\n\n\n\n\n\t\t\t\t\xdb\xdb");
+    for(i=0;a[i]!='\0';i++)
+    {
+        Sleep(50);
+        printf("%c",a[i]);
+    }
+
+ }
+
+
+void title()
+{
+    printf("\n\n\t\t\t\t\t\t*****FedEx COMPANY*****\n\n\n");
+}
+
+
+void employee_info()
+{
+    loading();
+    system("cls");
+    title();
+    printf("\n\n\n\n\n\n\t\t\t\t\t##################################\n");
+    printf("\t\t\t\t\t\tFedEx MANAGEMENT SYSTEM\n");
+    printf("\t\t\t\t\t##################################\n");
+    printf("\n\n\n\t\t\t\t1.Time schedule of General Employee system");
+    printf("\n\t\t\t\t2.Time schedule of Senior Officer's");
+     printf("\n\t\t\t\t3.Time schedule of Other stuff");
+    printf("\n\t\t\t\t4.Details of Employee");
+    printf("\n\t\t\t\t5.All Bill");
+    printf("\n\t\t\t\t6.Check of Employee Registration");
+    printf("\n\t\t\t\t7.Check Complain");
+    printf("\n\t\t\t\t8.Updating any details");
+    printf("\n\t\t\t\t9.Logout");
+    printf("\nChoice your option:");
+    int b;
+    scanf("%d",&b);
+    switch(b)
+    {
+    case 1:
+       {
+            system("cls");
+            title();
+            tsge();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+            system("cls");
+            title();
+            tsso();
+            _getch();
+            break;
+       }
+    case 3:
+        {
+            system("cls");
+            title();
+            tsos();
+            _getch();
+           break;
+       }
+    case 4:
+        {
+            system("cls");
+            title();
+            doe();
+            _getch();
+            break;
+        }
+    case 5:
+        {
+            system("cls");
+            title();
+            ab();
+            _getch();
+            break;
+        }
+
+     case 6:
+        {
+            loading();
+            system("cls");
+            title();
+            cer();
+            _getch();
+            break;
+        }
+    case 7:
+        {
+
+            system("cls");
+           title();
+           cc();
+           _getch();
+           break;
+       }
+    case 8:
+        {
+            system("cls");
+            title();
+           uad();
+            _getch();
+            break;
+        }
+
+
+    case 9:
+        {
+            loading();
+            system("cls");
+            title();
+            logout();
+            _getch();
+            break;
+        }
+    }
+    _getch();
+}
+
+void ab()
+{
+    printf("===================================================================================================================================================");
+    printf("\n\t\t\t\t||WELCOME  TO SALARY AND OTHER BILL MANAGEMENT SYSTEM||");
+    printf("\n===================================================================================================================================================");
+    printf("\nWhat type of bill,you want to check???");
+    printf("\n\n\t1.Salary of different position of employee:");
+    printf("\n\t2.Importation bill");
+    printf("\n\t3.Exportation bill");
+    printf("\n\t4.Back");
+    printf("\nPlease Enter Your Choice:..");
+     int b;
+    scanf("%d",&b);
+    switch(b)
+    {
+   case 1:
+        {
+            system("cls");
+            title();
+            salary();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+            system("cls");
+            title();
+            importation();
+            _getch();
+            break;
+        }
+    case 3:
+        {
+            system("cls");
+            title();
+            exportation();
+            _getch();
+           break;
+       }
+    case 4:
+        {
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+           break;
+        }
+
+}
+
+}
+
+void exportation()
+{
+     system("cls");
+            title();
+      printf("\t\t\t\t YEARLY EXPORTATION BILL:");
+          printf("\n\t\t=============================");
+           printf("\n\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD COUNTRY NAME\t\t\t\xDD\tAMOUNT OF BILL (DOLLAR)\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD AFGANISTAN\t\t\t\xDD\t5500\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD INDIA\t\t\t\t\xDD\t5000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD IN BANGLADESH\t\t\t\xDD\t4000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD AFRICA\t\t\t\xDD\t4500\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD AMERICA\t\t\t\xDD\t4250\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD UK\t\t\t\t\xDD\t4050\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD MAXICO\t\t\t\xDD\t350\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD SRILANKA\t\t\t\xDD\t3050\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD JAPAN\t\t\t\txDD\t250\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n1.main menu\n2.back");
+               printf("\nPlease Enter Your Choice:..");
+                int b;
+    scanf("%d",&b);
+    switch(b)
+    {
+   case 1:
+       {
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+            system("cls");
+            title();
+           ab();
+            _getch();
+            break;
+       }
+    }
+            _getch();
+
+}
+
+void importation()
+{
+
+     system("cls");
+            title();
+          printf("\t\t\t\t YEARLY IMPORTATION BILL:");
+          printf("\n\t\t=============================");
+           printf("\n\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD COUNTRY NAME\t\t\t\xDD\tAMOUNT OF BILL (DOLLAR)\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD AFGANISTAN\t\t\t\xDD\t5500\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD INDIA\t\t\t\t\xDD\t5000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD IN BANGLADESH\t\t\t\xDD\t4000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD AFRICA\t\t\t\xDD\t4500\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD AMERICA\t\t\t\xDD\t4250\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD UK\t\t\t\t\xDD\t4050\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD MAXICO\t\t\t\xDD\t350\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD SRILANKA\t\t\t\xDD\t3050\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD JAPAN\t\t\t\txDD\t250\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+
+            printf("\n1.main menu\n2.back");
+               printf("\nPlease Enter Your Choice:..");
+                int b;
+    scanf("%d",&b);
+    switch(b)
+    {
+   case 1:
+       {
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+            system("cls");
+            title();
+           ab();
+            _getch();
+            break;
+       }
+    }
+
+            _getch();
+}
+
+void salary()
+{
+    system("cls");
+    title();
+    printf("\t\t\t\tMONTHLY SALARY:");
+    printf("\n\t\t=============================");
+               printf("\n\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD POSITION TITLE\t\t\xDD\tAMOUNT OF SALARY\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD AGENCY HEAD\t\t\t\xDD\t55000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD CHIEF DIRECTOR\t\t\xDD\t50000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD GENERAL DIRECTOR\t\t\xDD\t40000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD ACCOUNTING ASSISTENT\t\t\xDD\t45000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD ACCOUNT OFFICER\t\t\xDD\t42500\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD ACCOUNTER\t\t\t\xDD\t40500\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD 1st CLASS OFFICER\t\t\xDD\t35000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD 2nd CLASS OFFICER\t\t\xDD\t30000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD 3rd CLASS OFFICER\t\t\xDD\t25000\t\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+               printf("\n\t\xDD NORMAL STUFF\t\t\t\xDD\t10000-15000\t\t\xDD");
+               printf("\n\t\xDD===============================\xDD===============================\xDD");
+
+              printf("\n1.main menu\n2.back");
+               printf("\nPlease Enter Your Choice:..");
+                int b;
+    scanf("%d",&b);
+    switch(b)
+    {
+   case 1:
+       {
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+            system("cls");
+            title();
+           ab();
+            _getch();
+            break;
+       }
+    }
+
+            _getch();
+}
+
+void uad()
+{
+    system("cls");
+    title();
+    char se[1000],c;
+    FILE *fp , *fp1;
+    fp=fopen("emp_rec.txt", "a");
+    if (fp== NULL)
+    {
+        printf("error!");
+
+    }
+    printf("enter your sentence:\n");
+    fflush(stdin);
+    gets(se);
+    fprintf(fp,"%s\n", se);
+    printf("\nINPUT IS SAVED!");
+    fclose(fp);
+
+    loading();
+    fp1=fopen("emp_rec.txt","r");
+    if(fp1=NULL)
+    {
+        printf("error!!");
+    }
+    do
+    {
+        c=fgetc(fp1);
+        putchar(c);
+    }while(c!=(EOF));
+
+printf("\nDo you want to back the last page?");
+    printf("\n1.yes\n2.no");
+    printf("\nEnter your choice:");
+      int s;
+    scanf("%d",&s);
+    switch(s)
+    {
+    case 1:
+        {
+            loading();
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+             loading();
+            system("cls");
+            title();
+            printf("please log out!!");
+            _getch();
+            system("cls");
+            logout();
+            _getch();
+            break;
+        }
+    }
+      _getch();
+
+}
+
+void cer()
+{
+    system("cls");
+    title();
+    FILE *fp;
+    fp=fopen("emp_rec.txt","r");
+    char ch;
+    int x=1;
+    printf("============================================\n\n");
+    printf("\tName:\t\t");
+    if(fp==NULL)
+    {
+        printf("error!!");
+    }
+    do
+    {
+        ch=fgetc(fp);
+        putchar(ch);
+        if (ch=='\0'){
+            printf("\b");
+        }
+        if (ch=='\n'){
+            if (x==1){
+                printf("\tPassword:\t");
+            } else if (x==2){
+                printf("\tEmail:\t\t");
+            }
+            else if (x==3){
+                printf("\tPhone:\t\t");
+            }
+            x++;
+        }
+
+    }while(ch!=(EOF));
+    printf("\b\n============================================\n");
+    printf("\nDo you want to back the last page?");
+    printf("\n1.yes\n2.no");
+    printf("\nEnter your choice:");
+      int s;
+    scanf("%d",&s);
+    switch(s)
+    {
+    case 1:
+        {
+            loading();
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+             loading();
+            system("cls");
+            title();
+            printf("please log out!!");
+            logout();
+            _getch();
+            break;
+        }
+    }
+    _getch();
+}
+
+void tsos()
+{
+     loading();
+    title();
+    system("cls");
+    printf("\n\n\t1.1st shift");
+    printf("\n\n\t2.2nd shift");
+     printf("\n\n\t3.back");
+    printf("\nEnter your choice:");
+    int s;
+    scanf("%d",&s);
+    switch(s)
+    {
+    case 1:
+        {
+            loading();
+            system("cls");
+            title();
+            fst_shift2();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+             loading();
+            system("cls");
+            title();
+            second_shift2();
+            _getch();
+            break;
+        }
+    case 3:
+        {
+            loading();
+            system("cls");
+            title();
+           employee_info();
+            _getch();
+            break;
+        }
+    }
+    _getch();
+}
+
+void fst_shift2()
+{
+            system("cls");
+            title();
+            printf("\n\n\t\xDD POSITION\t\t\xDD OFF_DAY\t\xDD TIME\t\t\t\xDD");
+               printf("\n\t\xDD===============================================================\xDD");
+            printf("\n\n\t\xdd Agency Head  \t\t\xDD Friday\t\xDD 11:00-5:30\t\t\xDD");
+            printf("\n\t\xDD===============================================================\xDD");
+            printf("\n\n\t\xDD cheif_Director\t\xDD Friday\t\xDD 11:00-5:00\t\t\xDD");
+               printf("\n\t\xDD===============================================================\xDD");
+            printf("\n\n\t\xDD General_director\t\xDD Friday\t\xDD 10:00-5:30\t\t\xDD");
+               printf("\n\t\xDD===============================================================\xDD");
+               printf("\nDo you back the last page?");
+               printf("\n1.yes\n2.no");
+               printf("\nenter your choice: ");
+            int q;
+   scanf("%d",&q);
+   switch(q)
+   {
+       case 1:
+           {
+               loading();
+               system("cls");
+               title();
+               tsos();
+               _getch();
+           }
+       case 2:
+        {
+            loading();
+            system("cls");
+            title();
+            fst_shift2();
+            _getch();
+        }
+   }
+            _getch();
+}
+
+void second_shift2()
+{
+            system("cls");
+            title();
+            printf("\n\n\t\xDD POSITION\t\t\xDD OFF_DAY\t\xDD TIME\t\t\t\xDD");
+               printf("\n\t\xDD===============================================================\xDD");
+            printf("\n\n\t\xdd Agency Head  \t\t\xDD Friday\t\xDD 01:00-4:30\t\t\xDD");
+            printf("\n\t\xDD===============================================================\xDD");
+            printf("\n\n\t\xDD cheif_Director\t\xDD Friday\t\xDD 01:00-5:00\t\t\xDD");
+               printf("\n\t\xDD===============================================================\xDD");
+            printf("\n\n\t\xDD General_director\t\xDD Friday\t\xDD 01:00-5:00\t\t\xDD");
+               printf("\n\t\xDD===============================================================\xDD");
+               printf("\nDo you back the last page?");
+               printf("\n1.yes\n2.no");
+               printf("\nenter your choice: ");
+            int q;
+   scanf("%d",&q);
+   switch(q)
+   {
+       case 1:
+           {
+               loading();
+               system("cls");
+               title();
+               tsos();
+               _getch();
+           }
+       case 2:
+        {
+            loading();
+            system("cls");
+            title();
+            second_shift2();
+            _getch();
+        }
+   }
+            _getch();
+}
+
+void tsso()
+{
+     loading();
+    title();
+    system("cls");
+    printf("\n\n\t1.1st shift");
+    printf("\n\n\t2.2nd shift");
+    printf("\n\n\t3.3rd shift");
+    printf("\n\n\t4.over time");
+    printf("\nEnter your choice:");
+    int s;
+    scanf("%d",&s);
+    switch(s)
+    {
+    case 1:
+        {
+            loading();
+            system("cls");
+            title();
+            fst_shift();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+             loading();
+            system("cls");
+            title();
+            second_shift();
+            _getch();
+            break;
+        }
+    case 3:
+        {
+             loading();
+            system("cls");
+            title();
+            third_shift();
+            _getch();
+            break;
+        }
+    case 4:
+        {
+             loading();
+            system("cls");
+            title();
+            over_time();
+            _getch();
+            break;
+        }
+    }
+   printf(" do you want to go back?");
+   printf("\n\n\t1.yes\n\t2.no");
+   printf("\n\nenter your choice:");
+   int a;
+   scanf("%d",&a);
+   switch(a)
+   {
+   case 1:
+    {
+        loading();
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+            break;
+    }
+   case 2:
+    {
+            loading();
+            system("cls");
+            title();
+            logout();
+            _getch();
+            break;
+    }
+   }
+   _getch();
+
+}
+
+void fst_shift()
+{
+        loading();
+            system("cls");
+            title();
+            printf("\n\n\t\xDD position\t\t\xDD time\t\t\xDD");
+               printf("\n\t\xDD=======================================\xDD");
+            printf("\n\n\t\xdd 1st class officer\t\xDD 11:00-5:30\t\xDD");
+            printf("\n\t\xDD=======================================\xDD");
+            printf("\n\n\t\xDD 2nd class officer\t\xDD 10:00-5:00\t\xDD");
+               printf("\n\t\xDD=======================================\xDD");
+            printf("\n\n\t\xDD 3rd class officer\t\xDD 9:00-5:30\t\xDD");
+               printf("\n\t\xDD=======================================\xDD");
+               printf("do you back the last page?");
+               printf("\n1.yes\n2.no");
+               printf("enter your choice: ");
+            int q;
+   scanf("%d",&q);
+   switch(q)
+   {
+       case 1:
+           {
+               loading();
+               system("cls");
+               title();
+               tsso();
+               _getch();
+           }
+       case 2:
+        {
+            loading();
+            system("cls");
+            title();
+            fst_shift();
+            _getch();
+        }
+   }
+            _getch();
+}
+
+void second_shift()
+{
+    loading();
+   system("cls");
+    title();
+    printf("\n\n\t\xDD position\t\t\t\t\xDD time\t\t\xDD");
+      printf("\n\t\xDD=======================================================\xDD");
+   printf("\n\n\t\xDD The accounting assistent\t\t\xDD 12:00-3:00\t\xDD");
+     printf("\n\t\xDD=======================================================\xDD");
+   printf(" \n\n\t\xDD accounter\t\t\t\t\xDD 12:4:00\t\xDD ");
+     printf("\n\t\xDD=======================================================\xDD");
+   printf("\n\nback:\n\n1.ok\n2.no");
+   int w;
+   scanf("%d",&w);
+   switch(w)
+   {
+       case 1:
+           {
+               loading();
+               system("cls");
+               title();
+               tsso();
+               _getch();
+           }
+       case 2:
+        {
+            loading();
+            system("cls");
+            title();
+            second_shift();
+            _getch();
+        }
+   }
+    _getch();
+}
+
+
+void third_shift()
+{
+   loading();
+   system("cls");
+   title();
+   printf("\n\n\t\xDD position\t\t\xDD time\t\t\xDD");
+     printf("\n\t\xDD=======================================\xDD");
+   printf("\n\n\t\xDD computer management\t\xDD 11:00-5:00\t\xDD");
+     printf("\n\t\xDD=======================================\xDD");
+   printf("\n\n\t\xDD delivered management\t\xDD 10:00-6:00\t\xDD");
+     printf("\n\t\xDD=======================================\xDD");
+   int e;
+   scanf("%d",&e);
+   switch(e)
+   {
+       case 1:
+           {
+               loading();
+               system("cls");
+               title();
+               tsso();
+               _getch();
+           }
+       case 2:
+        {
+            loading();
+            system("cls");
+            title();
+            third_shift();
+            _getch();
+        }
+   }
+   _getch();
+}
+
+
+void over_time()
+{
+    loading();
+    system("cls");
+    title();
+   printf("\n\t\t\tOvertime schedule:\n\n\t1.7:00-10:00\n\t2.8:00-11:00");
+   int r;
+   scanf("%d",&r);
+   switch(r)
+   {
+       case 1:
+           {
+               loading();
+               system("cls");
+               title();
+               tsso();
+               _getch();
+           }
+       case 2:
+        {
+            loading();
+            system("cls");
+            title();
+           over_time();
+            _getch();
+        }
+   }
+     _getch();
+}
+
+void doe()
+{
+    loading();
+    title();
+    system("cls");
+
+    FILE *fp;
+    int i=0;
+    char ch;
+    fp = fopen("write.txt","r");
+    if(fp==NULL)
+    {
+      printf("SORRY");
+
+    fclose(fp);
+    }
+ do
+    {
+        ch=fgetc(fp);
+        putchar(ch);
+    }
+    while(ch!=EOF);
+
+    fclose(fp);
+    printf("do you want to back?");
+    printf("\n\n\t1.Ok\n\t2.No Thanks");
+    printf("\nchoice your option:");
+    int o;
+    scanf("%d",&o);
+    switch(o)
+    {
+    case 1:
+        {
+            loading();
+            system("cls");
+            title();
+            employee_info();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+             loading();
+            system("cls");
+            title();
+            logout();
+            _getch();
+            break;
+        }
+    }
+_getch();
+
+}
+
+void cc()
+{
+   loading();
+   system("cls");
+   title();
+   printf("CHECK ALL COMPLAIN----");
+   printf("\n\n");
+   int c;
+   c=0;
+   FILE *fp;
+   fp=fopen("complain.txt","r");
+   if(fp==NULL)
+   {
+       printf("error...");
+   }
+   do
+   {
+       c=fgetc(fp);
+      putchar(c);
+
+   }while(c!=(EOF));
+   fclose(fp);
+   printf("back??");
+   printf("\n\n\t1.Ok\n\t2.NO Thanks");
+   printf("choice your option:");
+   int p;
+   scanf("%d",&p);
+   switch(p)
+   {
+   case 1:
+    {
+       loading();
+            system("cls");
+            title();
+         employee_info();
+            _getch();
+            break;
+    }
+   case 2:
+    {
+         loading();
+            system("cls");
+            title();
+            logout();
+            _getch();
+            break;
+    }
+   }
+
+   _getch();
+}
+
+void front_page2()
+{
+    loading();
+    system("cls");
+    title();
+    printf("\n\n\n\n\n\n1.Management\n\n2.Employee\n\n\n\n");
+    printf("Choice your option:");
+    int a;
+    scanf("%d",&a);
+    switch(a)
+    {
+    case 1:
+        {
+           system("cls");
+           title();
+           Front_page();
+           _getch();
+           break;
+         }
+    case 2:
+        {
+            system("cls");
+            title();
+            record_menu();
+            _getch();
+            break;
+        }
+    }
+    _getch();
+}
+
+int Front_page()
+{
+    loading();
+    system("cls");
+    title();
+    printf("\n\n\n\n\n\t\t\t\t\t##########################");
+    printf("\n\t\t\t\t\t\tADMIN PAGE:");
+    printf("\n\t\t\t\t\t##########################");
+    mainmenu:
+    printf("\n\n\t\t\t1.login\t\t\t\t2.registration\n");
+    printf("\n\n\t\t\tYour Choise:  ");
+    int m;
+    scanf("%d",&m);
+    switch (m)
+    {
+        case 1:
+     {
+        title();
+        login();
+
+        _getch();
+        system("cls");
+        break;
+
+     }
+    case 2:
+     {
+        title();
+        registration();
+        break;
+     }
+     default:
+        {
+            title();
+            printf("\n\n\t***Wrong entry***");
+            printf("Press Enter To Re-entry The Choice:");
+            _getch();
+            if(getch()==13)
+
+        goto mainmenu;
+        }
+        return 0;
+    }
+    _getch();
+
+}
+
+
+void Welcome_page()
+{
+    system("cls");
+    title();
+    printf("\n\n\n\n\n\n");
+    printf("\t\t\t\t\t-------------------------------------------\t\t\t");
+    printf("\t\t\t\t\t\t\t\t-------------------------------------------\t\t\t");
+    printf("\n\t\t\t\t\t\t****WELCOME TO FedEx COMPANY****\t\t\t");
+    printf("\n\t\t\t\t\t-------------------------------------------\t\t\t");
+    printf("\t\t\t\t\t\t\t\t%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\t\t\t\n");
+    _getch();
+}
+
+
+void main()
+{
+    system("color 01");
+    system("cls");
+    title();
+    Welcome_page();
+    front_page2();
+    _getch();
+}
+
+
+void record_menu()
+{
+    system("cls");
+    title();
+    printf("\n\n\n\t\t\tEMPLOYEE PAGE\n\n");
+    printf("\n\t1.login\n\t2.registration");
+    printf("\n\n\n\n\t\tYOUR CHOICE: ");
+    int a;
+     scanf("%d",&a);
+    switch(a)
+    {
+    case 1:
+        {
+            employee_login();
+            break;
+       }
+  case 2:
+        {
+            employee_reg();
+            break;
+        }
+
+    }
+    _getch();
+
+}
+
+
+void employee_login()
+{
+    system("cls");
+    title();
+    printf("\n\n\n\t\t\tEMPLOYEE LOGIN");
+      printf("\n\t\t============================== ");
+      int i,regi=0,optioon=0;
+      char ch;
+    FILE*fp1,*fp2;
+    fflush(stdin);
+    char name1[30];
+    char passw[30];
+    printf("\n\n\nEmployee name:");
+    fgets(name1, 30, stdin);
+    fflush(stdin);
+    printf("password:");
+    fgets(passw, 30, stdin);
+    fp1=fopen("emp_rec.txt","r");
+    fread(&emp ,sizeof(emp),1,fp1);
+    fclose(fp1);
+    for(i=0;i<200;i++)
+    {
+        if((strcmp(name1,emp[i].name)==0)&&(strcmp(passw,emp[i].pass)==0))
+           {
+               printf("correct name & password");
+               printf("\n");
+               i=200;
+               optioon=1;
+           }
+    }
+      if (optioon==1)
+            {
+
+                system("pause");
+                 system("cls");
+                printf("\n\n\n\t1.Employee Details\n\t2.Logout\n");
+                printf("enter your choice:  ");
+
+                int d;
+                scanf("%d",&d);
+                switch(d)
+                {
+                case 1:
+                    {
+                        system("cls");
+                        title();
+                        employee_menu();
+                        _getch();
+                        break;
+                    }
+                case 2:
+                    {
+                        system("cls");
+                        title();
+                        emp_logout();
+                        _getch();
+                        break;
+                    }
+                }
+                printf("\n");
+                system("pause");
+            }
+            else
+            {
+                printf("wrong pass or name\n");
+                system("pause");
+                printf("1.registration\n");
+                printf("2.login again\n");
+                printf("3.back\n");
+                printf("enter your choice:");
+                fflush(stdin);
+                int c;
+                scanf("%d",&c);
+                if(c==1)
+                {
+                    employee_reg();
+                }
+                else if(c==2)
+                {
+                    employee_login();
+                }
+                else
+                {
+                    record_menu();
+                }
+            }
+    _getch();
+}
+
+void emp_logout()
+{
+    system("cls");
+    title();
+    printf("Do you want to logout your account??");
+    printf("\n\t\t1.YES\n\t\t2.NO");
+    int s;
+    scanf("%d",&s);
+    switch(s)
+    {
+    case 1:
+        {
+            system("cls");
+            title();
+            record_menu();
+            _getch();
+            break;
+        }
+    case 2:
+        {
+            system("cls");
+            title();
+            printf("\t\tRecheck?");
+            employee_login();
+            _getch();
+            break;
+        }
+    }
+    _getch();
+}
+
+void employee_reg()
+{
+     system("cls");
+     title();
+    char Password[40];
+    int i,regi=0, optioon=0,pc=0;
+    FILE *fp1,*fp2;
+    fp2=fopen("emp_reg.txt","r");
+    if(fp2==NULL)
+    {
+        fp2=fopen("emp_reg.txt","w");
+       fwrite(&regi, sizeof (regi), 1, fp2);
+       fclose(fp2);
+    }
+    fread(&regi, sizeof(regi), 1, fp2);
+    fclose(fp2);
+    fp1=fopen("emp_rec.txt","r");
+    if(fp1=NULL)
+    {
+        fp1=fopen("emp_rec.txt","w");
+        fclose(fp1);
+    }
+    fread(&em, sizeof(em), 1, fp1);
+    fclose(fp1);
+    fflush(stdin);
+    for(i=regi;i<regi+1;i++)
+    {
+        printf("\n\n\tEnter name:");
+        fgets(em[i].name, 30,stdin);
+         printf("\n\n\tEnter Pass:");
+        fgets(em[i].pass, 30,stdin);
+         printf("\n\n\tEnter Email Address:");
+        fgets(em[i].email_add, 50,stdin);
+         printf("\n\n\tEnter Mobile Number:");
+        fgets(em[i].mob, 12,stdin);
+    }
+    fp1=fopen("emp_rec.txt","w");
+    fwrite(&em, sizeof(em),1,fp1);
+    fclose(fp1);
+    fp2=fopen("emp_reg.txt","w");
+    regi++;
+    fwrite(&regi, sizeof(regi), 1, fp2);
+    fclose(fp2);
+    pc=pc+1;
+    printf("\n\t\t\tYour are successfully Registered");
+    printf("\n\t\t\t1.Login");
+     printf("\n\t\t\t2.Back");
+      printf("\n\t\t\tEnter You choice:");
+      int c;
+      scanf("%d",&c);
+      if(c==1)
+      {
+          employee_login();
+      }
+      else
+    {
+       record_menu();
+    }
+       _getch();
+}
+
+void employee_menu()
+{
+    system("cls");
+    title();
+    int a;
+    printf(" \n\n\t\t\tEMPLOYEE'S INFORMATION:");
+    printf("\n\n\t1.Add any information\n\t2.update any information\n\t3.remove record\n\t4.show all record\n\t5.back\n\n");
+    printf("Enter your Choice:..");
+    scanf("%d",& a);
+    if (a==1)
+    {
+        system("cls");
+        title();
+         add_record();
+         _getch();
+    }
+    else if(a==2)
+    {
+        system("cls");
+        title();
+        update_record();
+        _getch();
+    }
+    else if(a==3)
+    {
+        system("cls");
+        title();
+        remove_record();
+         _getch();
+    }
+     else if(a==4)
+    {
+        system("cls");
+        title();
+        see_record();
+         _getch();
+    }
+    else if(a==5)
+    {
+        system("cls");
+        title();
+        employee_login();
+         _getch();
+    }
+
+
+}
+
+void remove_record()
+{
+     system("cls");
+      title();
+    	char name1[30];
+	int counter=0;
+
+	FILE *fp = fopen("A.txt","a");
+	int records =NULL;
+	FILE *fp1;
+	fp1=fopen("adding_record","a+");
+	fflush(stdin);
+	printf("Enter the Name:\n");
+	scanf("%s",name1);
+	while(counter!=records)
+	{
+		fread(&e,sizeof(struct add_record),1,fp);
+		if(e[i].name==name1)
+		{
+		    printf("data is matching");
+		}
+		else
+		{
+			fwrite(&e,sizeof(struct add_record),1,fp);
+		}
+		counter++;
+	}
+	fclose(fp);
+	fclose(fp1);
+	remove("adding_record.txt");
+	rename("A.txt","adding_record.txt");
+	printf("Press any key..");
+	printf("\n\n\tdelete successfully.....");
+	printf("\n\ndo you want to go back?");
+   printf("\n\n\t1.to see record?..\n\t2.go back?\n\t3.another");
+   printf("\nenter your choise: ");
+    int c;
+    scanf("%d",&c);
+    switch(c)
+    {
+    case 1:
+        {
+                title();
+             system("cls");
+            see_record();
+              _getch();
+        }
+    case 2:
+        {
+              title();
+             system("cls");
+             employee_menu();
+              _getch();
+        }
+    }
+	_getch();
+}
+
+void update_record()
+{
+    system("cls");
+    title();
+
+    printf("do you want to add any new record???\n");
+    printf("please enter your updating record....\n");
+    FILE *fp2;
+    fp2=fopen("adding_record.txt","r");
+    if(fp2==NULL)
+    {
+        printf("\t\t\tNo data in this file...");
+        exit(1);
+    }
+    while (fgets(e,300,fp2)!=NULL)
+    {
+        printf("%s",e);
+    }
+    fclose(fp2);
+    FILE *fp;
+    fp=fopen("adding_record.txt","a");
+    if(fp==NULL)
+    {
+        printf("No data in this file...");
+        exit(1);
+    }
+    printf("\nEnter your information:\n");
+    fflush(stdin);
+    printf("\n\n\t\t\tEnter Name:");
+    gets(e[i].name);
+    printf("\n\n\t\t\tEnter address:");
+    gets(e[i].add);
+    printf("\n\n\t\t\tEnter Phone number:");
+    gets(e[i].mob);
+    printf("\n\n\t\t\tEnter position:");
+    gets(e[i].position);
+    printf("\n\n\t\t\tEnter age:");
+    scanf("%d",&e[i].age);
+    printf("\n\t\t\tEnter salary:");
+    scanf("%d",&e[i].salary);
+
+    fprintf(fp,"\n%s",e[i].name);
+     fprintf(fp,"\n%s",e[i].add);
+      fprintf(fp,"\n%s",e[i].mob);
+      fprintf(fp,"\n%d",e[i].age);
+       fprintf(fp,"\n%s",e[i].position);
+        fprintf(fp,"\n%d",e[i].salary);
+    fclose(fp);
+   printf("do you want to go back?");
+   printf("\n\n\t1.yes\n\t2.no");
+   printf("\nenter your choise: ");
+    int c;
+    scanf("%d",&c);
+    switch(c)
+    {
+    case 1:
+        {
+              title();
+             system("cls");
+             employee_menu();
+
+              _getch();
+        }
+    case 2:
+        {
+              title();
+              system("cls");
+            update_record();
+              _getch();
+        }
+    }
+     _getch();
+
+}
+
+void add_record()
+{
+
+system("cls");
+title();
+printf("Do you really want to add any data?\n\n");
+
+    FILE *fp;
+    fp=fopen("adding_record2.txt","w");
+    system("cls");
+    fflush(stdin);
+    printf("ADD EMPLOYEE DATA:");
+    printf("\n\n\t\t\tEnter Name:");
+    gets(e[i].name);
+    printf("\n\n\t\t\tEnter address:");
+    gets(e[i].add);
+    printf("\n\n\t\t\tEnter Phone number:");
+    gets(e[i].mob);
+    printf("\n\n\t\t\tEnter position:");
+    gets(e[i].position);
+    printf("\n\n\t\t\tEnter age:");
+    scanf("%d",&e[i].age);
+    printf("\n\t\t\tEnter salary:");
+    scanf("%d",&e[i].salary);
+    fp=fopen("adding_record.txt","a");
+    fprintf(fp,"\nEnter name=%s",e[i].name);
+       fprintf(fp,"\nEnter Address=%s",e[i].add);
+    fprintf(fp,"\nEnter phone number=%s",e[i].mob);
+     fprintf(fp,"\nEnter Position=%s",e[i].position);
+      fprintf(fp,"\nEnter age=%d",e[i].age);
+       fprintf(fp,"\nEnter salary=%d\n\n\n",e[i].salary);
+
+    fclose(fp);
+     printf("\n\ndo u want to see diplaying record???\n");
+    printf("\n1.yes\n2.no");
+     printf("\nenter your choise: ");
+
+    scanf("%d",&c);
+    switch(c)
+    {
+    case 1:
+        {
+              title();
+             system("cls");
+             see_record();
+
+              _getch();
+        }
+    case 2:
+        {
+              title();
+              system("cls");
+            employee_menu();
+              _getch();
+        }
+    }
+
+    _getch();
+
+}
+
+void see_record()
+{
+    printf("\tDisplaying All Records of empployee: \n\n\n");
+      char n;
+      FILE *fp;
+     fp=fopen("adding_record.txt","r");
+    if (fp==NULL)
+    {
+        printf("\t\t\terror!!");
+        fclose(fp);
+    }
+    do
+    {
+       n=fgetc(fp);
+       putchar(n);
+    }while(n!=(EOF));
+    fclose(fp);
+
+    printf("do you want to go back?");
+   printf("\n\n\t1.yes\n\t2.no");
+   printf("\nenter your choise: ");
+    int c;
+    scanf("%d",&c);
+    switch(c)
+    {
+    case 1:
+        {
+              title();
+             system("cls");
+             employee_menu();
+          //   login();
+              _getch();
+        }
+    case 2:
+        {
+              title();
+              system("cls");
+            add_record();
+              _getch();
+        }
+    }
+
+}
+
+
+void logout()
+{
+      title();
+    system("cls");
+    printf("Do you want to logout your account???");
+    printf("\n\n\t\t1.YES\n\t\t2.NO");
+    printf("enter your choise: ");
+    int c;
+    scanf("%d",&c);
+    switch(c)
+    {
+    case 1:
+        {
+              title();
+             system("cls");
+             login();
+              _getch();
+        }
+    case 2:
+        {
+              title();
+              system("cls");
+              printf("recheck ???");
+              employee_info();
+              _getch();
+        }
+    }
+    _getch();
+}
+
+
+
+
+void tsge()
+{
+    system("cls");
+    title();
+    printf("\n\t\t\t\t\tTIME SCHEDULE OF GENERAL EMPLOYEE");
+
+   int i=0;
+   char ge;
+   FILE *fp;
+   fp= fopen("G_time_schedule.txt","r");
+   if(fp==NULL)
+   {
+       printf("error!");
+       fclose(fp);
+   }
+   do
+   {
+       ge=fgetc(fp);
+       putchar(ge);
+   }while(ge!=(EOF));
+   fclose(fp);
+   printf("do you want to go back?");
+   printf("\n\n\t1.yes\n\t2.no");
+   printf("\nenter your choise: ");
+    int c;
+    scanf("%d",&c);
+    switch(c)
+    {
+    case 1:
+        {
+              title();
+             system("cls");
+             employee_info();
+
+              _getch();
+        }
+    case 2:
+        {
+              title();
+              system("cls");
+            logout();
+              _getch();
+        }
+    }
+
+    _getch();
+}
